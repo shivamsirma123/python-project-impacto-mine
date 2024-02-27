@@ -17,6 +17,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import Link from 'next/link';
 
 export default function Submit() {
   const [selectedOption, setSelectedOption] = useState("");
@@ -43,7 +44,7 @@ export default function Submit() {
         </div>
         <div className="text-lg font-semibold">{`IMPACTO DOCUMENT PROCESSING SYSTEM [IDPS]`}</div>
       </div>
-      <div className="mb-96 mt-8 min-h-screen bg-gray-100">
+      <div className=" mt-8 min-h-screen bg-gray-100">
         <Head>
           <title>Submit Details - IDPS</title>
         </Head>
@@ -303,13 +304,18 @@ export default function Submit() {
             )}
           </form>
 
-          <button
-            type="submit"
-            className=" w-96 bg-blue-500 hover:bg-blue-600 text-white  font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline block mx-auto"
-          >
-            Submit
-          </button>
+          <Link href="/">
+      <div>
+        <button
+          type="submit"
+          className="w-96 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline block mx-auto"
+        >
+          Submit
+        </button>
+      </div>
+    </Link>
         </div>
+        
       </div>
     </>
   );

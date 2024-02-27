@@ -9,6 +9,8 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
+import Link from 'next/link';
+
 
 export default function Home() {
   const { toast } = useToast();
@@ -132,6 +134,9 @@ export default function Home() {
           </li>
         </ul>
       </nav>
+      <div>
+     
+    </div>
 
       <div style={{ display: "flex" }}>
         <ResizablePanelGroup direction="horizontal">
@@ -493,6 +498,7 @@ export default function Home() {
                   </label>
                   <br />
                   <div>
+                  
                     <Button
                       className="w-96"
                       onClick={handleOpen}
@@ -533,12 +539,19 @@ export default function Home() {
                       </div>
                     )}
                   </div>
+                  <Link href="/submit-details">
+                  <div className="mt-8 items-center justify-center text-center w-96 inline-block px-6 py-3 text-white font-semibold bg-blue-500 hover:bg-blue-600 rounded-lg cursor-pointer">
+  Move back
+</div>
+
+                    </Link>
                 </form>
               </div>
             </div>
           </ResizablePanel>
         </ResizablePanelGroup>
       </div>
+      
     </div>
   );
 }
