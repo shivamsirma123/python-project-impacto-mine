@@ -44,7 +44,7 @@ export default function Submit() {
         </div>
         <div className="text-lg font-semibold">{`IMPACTO DOCUMENT PROCESSING SYSTEM [IDPS]`}</div>
       </div>
-      <div className=" mt-8 min-h-screen bg-gray-100">
+      <div className=" min-h-screen bg-gray-100">
         <Head>
           <title>Submit Details - IDPS</title>
         </Head>
@@ -253,21 +253,8 @@ export default function Submit() {
               </label>
               <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                 <div className="space-y-1 text-center">
-                  <div className="flex flex-col items-center justify-center">
-                    <svg
-                      className="mx-auto h-12 w-12 text-gray-400"
-                      stroke="currentColor"
-                      fill="none"
-                      viewBox="0 0 48 48"
-                      aria-hidden="true"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M20 13v-2m8 0v2m-4-3v14m4-14a4 4 0 0 1 0 8"
-                      />
-                    </svg>
+                  <div className="flex flex-col items-center h-64 justify-center">
+                    
                     <div className="flex text-sm text-gray-600">
                       <label
                         htmlFor="fileInput"
@@ -305,7 +292,7 @@ export default function Submit() {
           </form>
 
           <Link href="/">
-      <div>
+      <div className="py-12">
         <button
           type="submit"
           className="w-96 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline block mx-auto"

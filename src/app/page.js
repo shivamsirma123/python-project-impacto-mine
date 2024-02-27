@@ -68,11 +68,7 @@ export default function Home() {
     { id: 1, name: "Document 1", url: "https://example.com/document1.pdf" },
     { id: 2, name: "Document 2", url: "https://example.com/document2.pdf" },
     { id: 3, name: "Document 3", url: "https://example.com/document3.pdf" },
-    {
-      id: 4,
-      name: "Document 4",
-      url: "https://www.clickdimensions.com/links/TestPDFfile.pdf",
-    },
+    { id: 4, name: "Document 4", url: "https://www.clickdimensions.com/links/TestPDFfile.pdf"},
     { id: 5, name: "Document 5", url: "https://example.com/document5.pdf" },
     { id: 6, name: "Document 6", url: "https://example.com/document6.pdf" },
     { id: 7, name: "Document 7", url: "https://example.com/document7.pdf" },
