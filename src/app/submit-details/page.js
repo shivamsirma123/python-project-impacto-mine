@@ -18,6 +18,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from 'next/link';
+import Tesseract from "tesseract.js";
+
 
 export default function Submit() {
   const [selectedOption, setSelectedOption] = useState("");
@@ -28,6 +30,9 @@ export default function Submit() {
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
   };
+
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("Form submitted with upload type:", selectedOption);
@@ -291,16 +296,33 @@ export default function Submit() {
             )}
           </form>
 
-          <Link href="/">
-      <div className="py-12">
-        <button
-          type="submit"
-          className="w-96 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline block mx-auto"
-        >
-          Submit
-        </button>
-      </div>
-      </Link>
+        
+          <div className="py-12 flex justify-center space-x-4">
+  <Link href="/">
+    <button
+      type="submit"
+      className="w-48 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+    >
+      Submit
+    </button>
+  </Link>
+
+  <button
+    type="submit"
+    className="w-48 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+  >
+    Extract file in text
+  </button>
+
+  <button
+    type="submit"
+    className="w-48 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+  >
+    Extract file in Excel
+  </button>
+</div>
+
+     
         </div>
         
       </div>
