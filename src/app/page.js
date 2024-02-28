@@ -29,9 +29,11 @@ export default function Home() {
   const handleOpen = () => {
     setPopoverOpen(true);
   };
+
   const handleClose = () => {
     setPopoverOpen(false);
   };
+  
   const [formData, setFormData] = useState({
     totalAmount: "",
     netAmount: "",
@@ -89,6 +91,7 @@ export default function Home() {
   const handlePageClick = (page) => {
     setCurrentPage(page);
   };
+
   return (
     <div class="mb-16">
       <nav
