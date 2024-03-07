@@ -31,27 +31,29 @@ export default function Submit() {
       title: "Form Submitted Successfully",
       description: "Your form data has been submitted successfully.",
       action: <ToastAction altText="Close">Close</ToastAction>,
-      duration: 1000, 
+      duration: 1000,
     });
-    setPopoverOpen(false);
   };
-
 
   const [selectedOption, setSelectedOption] = useState("");
-  const [selectedFile, setSelectedFile] = useState(null);
-  const handleOptionSelect = (option) => {
-    setSelectedOption(option);
-  };
+
+  const [selectedFiles, setSelectedFiles] = useState([]);
+
   const handleFileChange = (event) => {
-    setSelectedFile(event.target.files[0]);
+    const filesArray = Array.from(event.target.files);
+    setSelectedFiles([...selectedFiles, ...filesArray]);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("Form submitted with upload type:", selectedOption);
-    console.log("Uploaded file:", selectedFile);
+    console.log("Uploaded files:", selectedFiles);
     setSelectedOption("");
-    setSelectedFile(null);
+    setSelectedFiles([]);
+  };
+
+  const handleReset = () => {
+    setSelectedFiles([]);
   };
 
   return (
@@ -77,7 +79,7 @@ export default function Submit() {
                       ? "bg-blue-500 text-white"
                       : "bg-gray-200 text-gray-700"
                   }`}
-                  onClick={() => handleOptionSelect("Document")}
+                  // onClick={() => handleOptionSelect("Document")}
                 >
                   Document
                 </button>
@@ -116,7 +118,7 @@ export default function Submit() {
                   </div>
                 </div>
                 <DialogFooter>
-                <button
+                  <button
                     type="submit"
                     className="h-10 rounded-md text-xs px-4 py-2 bg-primary text-primary-foreground shadow hover:bg-primary/90"
                     onClick={handleContinue}
@@ -174,7 +176,7 @@ export default function Submit() {
                   </div>
                 </div>
                 <DialogFooter>
-                <button
+                  <button
                     type="submit"
                     className="h-10 rounded-md text-xs px-4 py-2 bg-primary text-primary-foreground shadow hover:bg-primary/90"
                     onClick={handleContinue}
@@ -226,7 +228,7 @@ export default function Submit() {
                   </div>
                 </div>
                 <DialogFooter>
-                <button
+                  <button
                     type="submit"
                     className="h-10 rounded-md text-xs px-4 py-2 bg-primary text-primary-foreground shadow hover:bg-primary/90"
                     onClick={handleContinue}
@@ -281,7 +283,7 @@ export default function Submit() {
                   <button
                     type="submit"
                     className="h-10 rounded-md text-xs px-4 py-2 bg-primary text-primary-foreground shadow hover:bg-primary/90"
-                  onClick={handleContinue}
+                    onClick={handleContinue}
                   >
                     Save changes
                   </button>
@@ -313,6 +315,7 @@ export default function Submit() {
                           accept=".doc,.docx,.pdf,.jpg,.jpeg,.png"
                           className="sr-only"
                           onChange={handleFileChange}
+                          multiple
                         />
                       </label>
                       <p className="pl-1">or drag and drop</p>
@@ -324,26 +327,30 @@ export default function Submit() {
                 </div>
               </div>
             </div>
-            {selectedFile && (
+            {selectedFiles.length > 0 && (
               <div className="mb-4 w-full">
                 <h3 className="font-semibold">Preview:</h3>
-                <img
-                  src={URL.createObjectURL(selectedFile)}
-                  alt="Uploaded file"
-                  className="mt-2 max-w-full"
-                />
+                <div className="flex flex-wrap justify-center">
+                  {selectedFiles.map((file, index) => (
+                    <img
+                      key={index}
+                      src={URL.createObjectURL(file)}
+                      alt={`Uploaded file ${index + 1}`}
+                      className="mt-2 max-w-full mr-2"
+                    />
+                  ))}
+                </div>
               </div>
             )}
           </form>
 
           <div className="py-12 flex justify-center space-x-4">
-
-          <button
-                type="submit"
-                className="w-48 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              >
-                Bulk image Upload
-              </button>
+            <button
+              type="submit"
+              className="w-48 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            >
+              Bulk image Upload
+            </button>
             <Link href="/">
               <button
                 type="submit"
@@ -352,8 +359,6 @@ export default function Submit() {
                 Submit
               </button>
             </Link>
-
-           
 
             <button
               type="submit"
@@ -367,6 +372,13 @@ export default function Submit() {
               className="w-48 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
               Extract file in Excel
+            </button>
+            <button
+              type="button"
+              onClick={handleReset}
+              className="w-48 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            >
+              Reset
             </button>
           </div>
         </div>
