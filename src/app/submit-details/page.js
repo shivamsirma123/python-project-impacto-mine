@@ -14,14 +14,29 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
+import { useToast } from "@/components/ui/use-toast";
+import { ToastAction } from "@/components/ui/toast";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import Link from 'next/link';
+import Link from "next/link";
 import Tesseract from "tesseract.js";
 
-
 export default function Submit() {
+  const { toast } = useToast();
+  const handleContinue = () => {
+    console.log("Continue button clicked");
+    toast({
+      title: "Form Submitted Successfully",
+      description: "Your form data has been submitted successfully.",
+      action: <ToastAction altText="Close">Close</ToastAction>,
+      duration: 1000, 
+    });
+    setPopoverOpen(false);
+  };
+
+
   const [selectedOption, setSelectedOption] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
   const handleOptionSelect = (option) => {
@@ -30,8 +45,6 @@ export default function Submit() {
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
   };
-
-
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -78,28 +91,38 @@ export default function Submit() {
                 </DialogHeader>
                 <div className="grid gap-4 py-4">
                   <div className="grid grid-cols-4 items-center gap-4">
-                    <Label htmlFor="name" className="text-right whitespace-nowrap	">
+                    <Label
+                      htmlFor="name"
+                      className="text-right whitespace-nowrap	"
+                    >
                       Document Name
                     </Label>
                     <Input
                       id="name"
-                      value=""
                       className="col-span-3 border border-black "
                     />
                   </div>
                   <div className="grid grid-cols-4 items-center gap-4">
-                    <Label htmlFor="username" className="text-right whitespace-nowrap	">
+                    <Label
+                      htmlFor="username"
+                      className="text-right whitespace-nowrap	"
+                    >
                       Document Type
                     </Label>
                     <Input
                       id="username"
-                      value=""
                       className="col-span-3 border border-black "
                     />
                   </div>
                 </div>
                 <DialogFooter>
-                  <Button type="submit">Save changes</Button>
+                <button
+                    type="submit"
+                    className="h-10 rounded-md text-xs px-4 py-2 bg-primary text-primary-foreground shadow hover:bg-primary/90"
+                    onClick={handleContinue}
+                  >
+                    Save changes
+                  </button>
                 </DialogFooter>
               </DialogContent>
             </Dialog>
@@ -126,28 +149,38 @@ export default function Submit() {
                 </DialogHeader>
                 <div className="grid gap-4 py-4">
                   <div className="grid grid-cols-4 items-center gap-4">
-                    <Label htmlFor="name" className="text-right whitespace-nowrap">
-                    Invoice Name
+                    <Label
+                      htmlFor="name"
+                      className="text-right whitespace-nowrap"
+                    >
+                      Invoice Name
                     </Label>
                     <Input
                       id="name"
-                      value=""
                       className="col-span-3 border border-black"
                     />
                   </div>
                   <div className="grid grid-cols-4 items-center gap-4">
-                    <Label htmlFor="username" className="text-right whitespace-nowrap	">
-                    Invoice Type
+                    <Label
+                      htmlFor="username"
+                      className="text-right whitespace-nowrap	"
+                    >
+                      Invoice Type
                     </Label>
                     <Input
                       id="username"
-                      value=""
                       className="col-span-3 border border-black"
                     />
                   </div>
                 </div>
                 <DialogFooter>
-                  <Button type="submit">Save changes</Button>
+                <button
+                    type="submit"
+                    className="h-10 rounded-md text-xs px-4 py-2 bg-primary text-primary-foreground shadow hover:bg-primary/90"
+                    onClick={handleContinue}
+                  >
+                    Save changes
+                  </button>
                 </DialogFooter>
               </DialogContent>
             </Dialog>
@@ -179,7 +212,6 @@ export default function Submit() {
                     </Label>
                     <Input
                       id="name"
-                      value=""
                       className="col-span-3 border border-black"
                     />
                   </div>
@@ -189,13 +221,18 @@ export default function Submit() {
                     </Label>
                     <Input
                       id="username"
-                      value=""
                       className="col-span-3 border border-black"
                     />
                   </div>
                 </div>
                 <DialogFooter>
-                  <Button type="submit">Save changes</Button>
+                <button
+                    type="submit"
+                    className="h-10 rounded-md text-xs px-4 py-2 bg-primary text-primary-foreground shadow hover:bg-primary/90"
+                    onClick={handleContinue}
+                  >
+                    Save changes
+                  </button>
                 </DialogFooter>
               </DialogContent>
             </Dialog>
@@ -227,7 +264,6 @@ export default function Submit() {
                     </Label>
                     <Input
                       id="name"
-                      value=""
                       className="col-span-3 border border-black"
                     />
                   </div>
@@ -237,13 +273,18 @@ export default function Submit() {
                     </Label>
                     <Input
                       id="username"
-                      value=""
                       className="col-span-3 border border-black"
                     />
                   </div>
                 </div>
                 <DialogFooter>
-                  <Button type="submit">Save changes</Button>
+                  <button
+                    type="submit"
+                    className="h-10 rounded-md text-xs px-4 py-2 bg-primary text-primary-foreground shadow hover:bg-primary/90"
+                  onClick={handleContinue}
+                  >
+                    Save changes
+                  </button>
                 </DialogFooter>
               </DialogContent>
             </Dialog>
@@ -259,7 +300,6 @@ export default function Submit() {
               <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                 <div className="space-y-1 text-center">
                   <div className="flex flex-col items-center h-64 justify-center">
-                    
                     <div className="flex text-sm text-gray-600">
                       <label
                         htmlFor="fileInput"
@@ -296,35 +336,40 @@ export default function Submit() {
             )}
           </form>
 
-        
           <div className="py-12 flex justify-center space-x-4">
-  <Link href="/">
-    <button
-      type="submit"
-      className="w-48 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-    >
-      Submit
-    </button>
-  </Link>
 
-  <button
-    type="submit"
-    className="w-48 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-  >
-    Extract file in text
-  </button>
+          <button
+                type="submit"
+                className="w-48 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              >
+                Bulk image Upload
+              </button>
+            <Link href="/">
+              <button
+                type="submit"
+                className="w-48 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              >
+                Submit
+              </button>
+            </Link>
 
-  <button
-    type="submit"
-    className="w-48 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-  >
-    Extract file in Excel
-  </button>
-</div>
+           
 
-     
+            <button
+              type="submit"
+              className="w-48 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            >
+              Extract file in text
+            </button>
+
+            <button
+              type="submit"
+              className="w-48 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            >
+              Extract file in Excel
+            </button>
+          </div>
         </div>
-        
       </div>
     </>
   );
