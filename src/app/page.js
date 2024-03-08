@@ -9,8 +9,7 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
-import Link from 'next/link';
-
+import Link from "next/link";
 
 export default function Home() {
   const { toast } = useToast();
@@ -21,7 +20,7 @@ export default function Home() {
       title: "Form Submitted Successfully",
       description: "Your form data has been submitted successfully.",
       action: <ToastAction altText="Close">Close</ToastAction>,
-      duration: 1000, 
+      duration: 1000,
     });
     setPopoverOpen(false);
   };
@@ -33,7 +32,7 @@ export default function Home() {
   const handleClose = () => {
     setPopoverOpen(false);
   };
-  
+
   const [formData, setFormData] = useState({
     totalAmount: "",
     netAmount: "",
@@ -66,17 +65,52 @@ export default function Home() {
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 1;
 
-  
   const [documents, setDocuments] = useState([
-    { id: 1, name: "Document 1", url: "https://www.clickdimensions.com/links/TestPDFfile.pdf" },
-    { id: 2, name: "Document 2", url: "https://www.clickdimensions.com/links/TestPDFfile.pdf" },
-    { id: 3, name: "Document 3", url: "https://www.clickdimensions.com/links/TestPDFfile.pdf" },
-    { id: 4, name: "Document 4", url: "https://www.clickdimensions.com/links/TestPDFfile.pdf"},
-    { id: 5, name: "Document 5", url: "https://www.clickdimensions.com/links/TestPDFfile.pdf" },
-    { id: 6, name: "Document 6", url: "https://www.clickdimensions.com/links/TestPDFfile.pdf" },
-    { id: 7, name: "Document 7", url: "https://www.clickdimensions.com/links/TestPDFfile.pdf" },
-    { id: 8, name: "Document 8", url: "https://www.clickdimensions.com/links/TestPDFfile.pdf" },
-    { id: 9, name: "Document 9", url: "https://www.clickdimensions.com/links/TestPDFfile.pdf" },
+    {
+      id: 1,
+      name: "Document 1",
+      url: "https://www.clickdimensions.com/links/TestPDFfile.pdf",
+    },
+    {
+      id: 2,
+      name: "Document 2",
+      url: "https://www.clickdimensions.com/links/TestPDFfile.pdf",
+    },
+    {
+      id: 3,
+      name: "Document 3",
+      url: "https://www.clickdimensions.com/links/TestPDFfile.pdf",
+    },
+    {
+      id: 4,
+      name: "Document 4",
+      url: "https://www.clickdimensions.com/links/TestPDFfile.pdf",
+    },
+    {
+      id: 5,
+      name: "Document 5",
+      url: "https://www.clickdimensions.com/links/TestPDFfile.pdf",
+    },
+    {
+      id: 6,
+      name: "Document 6",
+      url: "https://www.clickdimensions.com/links/TestPDFfile.pdf",
+    },
+    {
+      id: 7,
+      name: "Document 7",
+      url: "https://www.clickdimensions.com/links/TestPDFfile.pdf",
+    },
+    {
+      id: 8,
+      name: "Document 8",
+      url: "https://www.clickdimensions.com/links/TestPDFfile.pdf",
+    },
+    {
+      id: 9,
+      name: "Document 9",
+      url: "https://www.clickdimensions.com/links/TestPDFfile.pdf",
+    },
   ]);
 
   const totalPages = Math.ceil(documents.length / itemsPerPage);
@@ -134,9 +168,7 @@ export default function Home() {
           </li>
         </ul>
       </nav>
-      <div>
-     
-    </div>
+      <div></div>
 
       <div style={{ display: "flex" }}>
         <ResizablePanelGroup direction="horizontal">
@@ -148,7 +180,6 @@ export default function Home() {
                   flexDirection: "column",
                 }}
               >
-                
                 <div style={{ flex: 1 }}>
                   {documents.map((document, index) => (
                     <div
@@ -186,7 +217,7 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-               
+
                 <div className="flex mt-24 ml-32">
                   <a
                     href="#"
@@ -216,16 +247,18 @@ export default function Home() {
                     </div>
                   </a>
                   {Array.from({ length: totalPages }, (_, index) => (
-                  <a
-                  key={index}
-                  href="#"
-                  className={`px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform rounded-md ${
-                    currentPage === index ? "bg-blue-500 text-white" : "bg-white text-gray-500"
-                  } sm:inline dark:bg-gray-800 dark:text-gray-200 hover:bg-blue-500 dark:hover:bg-blue-500 hover:text-white dark:hover:text-gray-200`}
-                  onClick={() => handlePageClick(index)}
-                >
-                  {index + 1}
-                </a>
+                    <a
+                      key={index}
+                      href="#"
+                      className={`px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform rounded-md ${
+                        currentPage === index
+                          ? "bg-blue-500 text-white"
+                          : "bg-white text-gray-500"
+                      } sm:inline dark:bg-gray-800 dark:text-gray-200 hover:bg-blue-500 dark:hover:bg-blue-500 hover:text-white dark:hover:text-gray-200`}
+                      onClick={() => handlePageClick(index)}
+                    >
+                      {index + 1}
+                    </a>
                   ))}
                   <a
                     href="#"
@@ -499,7 +532,6 @@ export default function Home() {
                   </label>
                   <br />
                   <div>
-                  
                     <Button
                       className="w-96"
                       onClick={handleOpen}
@@ -541,18 +573,16 @@ export default function Home() {
                     )}
                   </div>
                   <Link href="/submit-details">
-                  <div className="mt-8 items-center justify-center text-center w-96 inline-block px-6 py-3 text-white font-semibold bg-blue-500 hover:bg-blue-600 rounded-lg cursor-pointer">
-  Move back
-</div>
-
-                    </Link>
+                    <div className="mt-8 items-center justify-center text-center w-96 inline-block px-6 py-3 text-white font-semibold bg-blue-500 hover:bg-blue-600 rounded-lg cursor-pointer">
+                      Move back
+                    </div>
+                  </Link>
                 </form>
               </div>
             </div>
           </ResizablePanel>
         </ResizablePanelGroup>
       </div>
-      
     </div>
   );
 }

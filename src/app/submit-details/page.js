@@ -14,6 +14,11 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
 import { useToast } from "@/components/ui/use-toast";
 import { ToastAction } from "@/components/ui/toast";
 
@@ -318,10 +323,11 @@ export default function Submit() {
                           multiple
                         />
                       </label>
-                      <p className="pl-1">or drag and drop</p>
+                      <p className="pl-1">Alternatively, you can drag and drop files here</p>
                     </div>
                     <p className="text-xs text-gray-500">
-                      PDF, JPG, PNG up to 10MB
+                    Supported file types: PDF, JPG, PNG | Maximum file size: 10MB
+
                     </p>
                   </div>
                 </div>
@@ -352,12 +358,20 @@ export default function Submit() {
               Bulk image Upload
             </button>
             <Link href="/">
-              <button
-                type="submit"
-                className="w-48 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              >
-                Submit
-              </button>
+              <HoverCard>
+                <HoverCardTrigger>
+                  <button
+                    type="submit"
+                    className="w-48 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  >
+                    Submit
+                  </button>
+                </HoverCardTrigger>
+                <HoverCardContent>
+                  Submitting will process the files and advance to the next
+                  page.
+                </HoverCardContent>
+              </HoverCard>
             </Link>
 
             <button
