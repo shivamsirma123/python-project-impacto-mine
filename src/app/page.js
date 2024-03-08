@@ -9,6 +9,16 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
+
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import Link from "next/link";
 
 export default function Home() {
@@ -208,7 +218,30 @@ export default function Home() {
                           whiteSpace: "nowrap",
                         }}
                       >
-                        {document.name}
+                      <div style={{ display: 'flex', alignItems: 'center' }}>
+  <span style={{ flexGrow: 1 }}>{document.name}</span>
+  <div style={{ display: 'flex', justifyContent: 'flex-end', marginLeft: '20px' }}>
+  <Select style={{ width: '180px' }}>
+    <SelectTrigger>
+      <SelectValue placeholder="Document Type" />
+    </SelectTrigger>
+    <SelectContent>
+      <SelectGroup>
+        <SelectLabel>Select a Document Type</SelectLabel>
+        <SelectItem value="invoice">Invoice</SelectItem>
+        <SelectItem value="receipt">Receipt</SelectItem>
+        <SelectItem value="report">Report</SelectItem>
+        <SelectItem value="contract">Contract</SelectItem>
+        <SelectItem value="proposal">Proposal</SelectItem>
+      </SelectGroup>
+    </SelectContent>
+  </Select>
+</div>
+
+
+</div>
+
+
                       </h2>
                       <iframe
                         src={document.url}
@@ -222,7 +255,6 @@ export default function Home() {
                           boxShadow: "2px 2px 5px rgba(0, 0, 0, 0.1)",
                           backgroundColor: "#f8f8f8",
                           padding: "10px",
-                          
                         }}
                       ></iframe>
                     </div>
