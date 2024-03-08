@@ -323,11 +323,13 @@ export default function Submit() {
                           multiple
                         />
                       </label>
-                      <p className="pl-1">Alternatively, you can drag and drop files here</p>
+                      <p className="pl-1">
+                        Alternatively, you can drag and drop files here
+                      </p>
                     </div>
                     <p className="text-xs text-gray-500">
-                    Supported file types: PDF, JPG, PNG | Maximum file size: 10MB
-
+                      Supported file types: PDF, JPG, PNG | Maximum file size:
+                      10MB
                     </p>
                   </div>
                 </div>
@@ -351,12 +353,21 @@ export default function Submit() {
           </form>
 
           <div className="py-12 flex justify-center space-x-4">
-            <button
-              type="submit"
-              className="w-48 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            >
-              Bulk image Upload
-            </button>
+            <HoverCard>
+              <HoverCardTrigger>
+                <button
+                  type="submit"
+                  className="w-48 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                >
+                  Bulk image Upload
+                </button>
+              </HoverCardTrigger>
+              <HoverCardContent>
+              Click here to upload multiple images at once
+
+              </HoverCardContent>
+            </HoverCard>
+
             <Link href="/">
               <HoverCard>
                 <HoverCardTrigger>
@@ -374,26 +385,51 @@ export default function Submit() {
               </HoverCard>
             </Link>
 
-            <button
-              type="submit"
-              className="w-48 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            >
-              Extract file in text
-            </button>
+            <HoverCard>
+              <HoverCardTrigger>
+                <button
+                  type="submit"
+                  className="w-48 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                >
+                  Extract file in text
+                </button>
+              </HoverCardTrigger>
+              <HoverCardContent>
+              Click here to extract the file in text format
 
-            <button
-              type="submit"
-              className="w-48 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            >
-              Extract file in Excel
-            </button>
-            <button
-              type="button"
-              onClick={handleReset}
-              className="w-48 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            >
-              Reset
-            </button>
+              </HoverCardContent>
+            </HoverCard>
+
+            <HoverCard>
+              <HoverCardTrigger>
+                <button
+                  type="submit"
+                  className="w-48 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                >
+                  Extract file in Excel
+                </button>
+              </HoverCardTrigger>
+              <HoverCardContent>
+              Click here to extract the file in Excel format
+
+              </HoverCardContent>
+            </HoverCard>
+
+            <HoverCard>
+              <HoverCardTrigger>
+                <button
+                  type="button"
+                  onClick={handleReset}
+                  className="w-48 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                >
+                  Reset
+                </button>
+              </HoverCardTrigger>
+              <HoverCardContent>
+              Click here to reset the form
+
+              </HoverCardContent>
+            </HoverCard>
           </div>
         </div>
       </div>
