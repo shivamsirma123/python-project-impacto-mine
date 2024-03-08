@@ -14,6 +14,8 @@ import Link from "next/link";
 export default function Home() {
   const { toast } = useToast();
   const [isPopoverOpen, setPopoverOpen] = useState(false);
+  const [zoomLevel, setZoomLevel] = useState(1);
+
   const handleContinue = () => {
     console.log("Continue button clicked");
     toast({
@@ -31,6 +33,14 @@ export default function Home() {
 
   const handleClose = () => {
     setPopoverOpen(false);
+  };
+
+  const handleZoomIn = () => {
+    setZoomLevel((prevZoomLevel) => prevZoomLevel + 0.1);
+  };
+
+  const handleZoomOut = () => {
+    setZoomLevel((prevZoomLevel) => prevZoomLevel - 0.1);
   };
 
   const [formData, setFormData] = useState({
@@ -212,6 +222,7 @@ export default function Home() {
                           boxShadow: "2px 2px 5px rgba(0, 0, 0, 0.1)",
                           backgroundColor: "#f8f8f8",
                           padding: "10px",
+                          
                         }}
                       ></iframe>
                     </div>
