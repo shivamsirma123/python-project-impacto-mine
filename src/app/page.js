@@ -120,7 +120,7 @@ export default function Home() {
               fontSize: "36px",
             }}
           >
-            <a href="#">Sirma Business Consulting</a>
+            <a href="#">Impacto Digifin Technologies </a>
           </li>
 
           <li style={{ marginRight: "20px" }}>
